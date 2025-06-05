@@ -31,6 +31,7 @@ public class BookSelect {
 			query += "			pubs, ";
 			query += "			pub_date, ";
 			query += "			author_id ";
+			query += "from book ";
 			//바인딩
 			pstmt = conn.prepareStatement(query);
 			// 4.결과처리

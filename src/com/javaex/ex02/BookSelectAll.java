@@ -36,11 +36,11 @@ public class BookSelectAll {
 			query += "			bo.title, ";
 			query += "			bo.pubs, ";
 			query += "			bo.pub_date, ";
-			query += "			bo.author_id, ";
+			query += "			au.author_id, ";
 			query += "			au.author_name, ";
 			query += "			au.author_desc ";
-			query += "from book bo, author au" ;
-			query += "where bo.author_id = au.author_id";
+			query += "from book bo, author au " ;
+			query += "where bo.author_id = au.author_id ";
 			// 바인딩
 			pstmt = conn.prepareStatement(query);
 			// 실행
@@ -62,13 +62,14 @@ public class BookSelectAll {
 			}
 			
 			for(BookAuthorVO bookauthorVO : baList) {
-				System.out.println(bookauthorVO.getBook_id());
-				System.out.println(bookauthorVO.getTitle());
-				System.out.println(bookauthorVO.getPubs());
-				System.out.println(bookauthorVO.getPub_date());
-				System.out.println(bookauthorVO.getAuthor_id());
-				System.out.println(bookauthorVO.getAuthor_name());
-				System.out.println(bookauthorVO.getAuthor_desc());
+				System.out.print(bookauthorVO.getBook_id() + " / ");
+				System.out.print(bookauthorVO.getTitle() + " / ");
+				System.out.print(bookauthorVO.getPubs() + " / ");
+				System.out.print(bookauthorVO.getPub_date() + " / ");
+				System.out.print(bookauthorVO.getAuthor_id() + " / ");
+				System.out.print(bookauthorVO.getAuthor_name() + " / ");
+				System.out.print(bookauthorVO.getAuthor_desc() + "\n");
+				System.out.println("========================================================================================================");
 			}
 
 		} catch (ClassNotFoundException e) {
